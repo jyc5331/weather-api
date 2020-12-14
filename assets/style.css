@@ -17,6 +17,7 @@ nav {
   background: #f7f9fa;
   max-width: 30%;
   min-width: fit-content;
+  margin-left: 2%;
 }
 
 #city-input {
@@ -32,6 +33,6 @@ nav {
 }
 
 .card {
-  margin-left: 2%;
+  margin: 5px;
   color: gray;
 }
