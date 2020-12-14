@@ -27,6 +27,8 @@ nav {
 #search-button {
   background-color: #047bfe;
   color: white;
+  border: 2px solid #9bc7f7;
+  border-radius: 3px;
 }
 
 .card {
