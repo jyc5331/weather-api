@@ -26,18 +26,34 @@
     </header>
     <!--nav bar-->
     <nav>
-        <h5> Search for a city:</h3>
+        <h5> Search for a city:</h5>
         <!--search button-->
-        <div>
+        <form>
             <input id=city-input> </input> <button id=search-button> <i class="fas fa-search"></i></button>
-        </div>
+        </form>
         <!--city cards-->
-      <div class="card" style="width: 18rem">
+      <div class="card" id = "city-card" style="width: 18rem">
         <ul class="list-group list-group-flush">
+          <li class="list-group-item">placeholder</li>
           <li class="list-group-item">placeholder</li>
         </ul>
       </div>
     </nav>
+    <!--current city div-->
+
+    <!--5 day forecast cards-->
+    <div class="row">
+        <div class="col-sm-2">
+          <div class="card">
+            <div class="card-body five-day-cards">
+              <h6>Current Date</h6>
+              <p>place img here</p>
+              <p>Temperature:</p>
+              <p>Humidity:</p>
+            </div>
+          </div>
+          </div>
+      </div>
     <!--JS sources-->
     <script src="assets/script.js"></script>
     <script
