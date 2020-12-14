@@ -4,8 +4,32 @@ body {
 
 #title-bar {
   text-align: center;
-  margin: 4%;
+  margin: 2%;
+  margin-bottom: 0;
   padding: 2%;
   color: white;
   background-color: rgb(51, 51, 51);
+}
+
+/* nav bar stylings */
+nav {
+  flex: auto;
+  background: #f7f9fa;
+  max-width: 30%;
+  min-width: fit-content;
+}
+
+#city-input {
+  margin: 1%;
+  margin-left: 2%;
+}
+
+#search-button {
+  background-color: #047bfe;
+  color: white;
+}
+
+.card {
+  margin-left: 2%;
+  color: gray;
 }

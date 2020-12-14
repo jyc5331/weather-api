@@ -7,13 +7,15 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>Weather Search</title>
-    <!--bootstrap SS-->
+    <!--bootstrap CDN-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
       crossorigin="anonymous"
     />
+    <!--font awesome CDN-->
+    <script src="https://kit.fontawesome.com/0230e29d73.js" crossorigin="anonymous"></script>
     <!--local SS-->
     <link rel="stylesheet" href="assets/style.css" />
   </head>
@@ -22,6 +24,19 @@
     <header id="title-bar">
       <h1>Weather Dashboard</h1>
     </header>
+    <!--nav bar-->
+    <nav>
+        <!--search button-->
+        <div>
+            <input id=city-input> </input> <button id=search-button> <i class="fas fa-search"></i></button>
+        </div>
+        <!--city cards-->
+      <div class="card" style="width: 18rem">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">placeholder</li>
+        </ul>
+      </div>
+    </nav>
     <!--JS sources-->
     <script src="assets/script.js"></script>
     <script
