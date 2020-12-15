@@ -20,46 +20,58 @@
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
+    
     <!--header-->
-    <header id="title-bar">
+    <header class="col-12" id="title-bar">
       <h1>Weather Dashboard</h1>
     </header>
-    <!--nav bar-->
-    <nav>
-        <h5> Search for a city:</h5>
-        <!--search button-->
-        <form>
-            <input id=city-input> </input> <button id=search-button> <i class="fas fa-search"></i></button>
-        </form>
-        <!--city cards-->
-      <div class="card" id = "city-card" style="width: 18rem">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">placeholder</li>
-          <li class="list-group-item">placeholder</li>
-        </ul>
-      </div>
-    </nav>
-    <!--current city div-->
-    <section>
-        <h3> Current City INSERT DATE INSERT IMG</h3>
-        <p> Temperature: </p>
-        <p> Humidity: </p>
-        <p> Wind Speed: </p>
-        <p> UV Index: </p>
-    </section>
-    <!--5 day forecast cards-->
-    <div class="row">
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body five-day-cards">
-              <h6>Current Date</h6>
-              <p>place img here</p>
-              <p>Temperature:</p>
-              <p>Humidity:</p>
+    
+    <div class="container">
+      <div class="row">
+        <!--nav bar-->
+        <nav class="col-4 bg-light">
+            <h5> Search for a city:</h5>
+            <!--search button-->
+        
+            <form>
+                <input id=city-input> </input> <button id=search-button> <i class="fas fa-search"></i></button>
+            </form>
+
+            <!--city cards-->
+        <div class="card" id = "city-card" style="width: 18rem">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">placeholder</li>
+            <li class="list-group-item">placeholder</li>
+            </ul>
+        </div>
+        </nav>
+        <!--current city div-->
+        <section class="col-8" id="current-city">
+            <div>
+            <h3> Current City INSERT DATE INSERT IMG</h3>
+            <p> Temperature: </p>
+            <p> Humidity: </p>
+            <p> Wind Speed: </p>
+            <p> UV Index: </p>
+        </div>
+        </section>
+        <!--5 day forecast cards-->
+        <div class="col-8 d-flex justify-content-end">
+                <h5>5-Day Forecast</h5>
+
+            <div class="col-sm-2">
+            <div class="card">
+                <div class="card-body five-day-cards">
+                <h6>Current Date</h6>
+                <p>place img here</p>
+                <p>Temperature:</p>
+                <p>Humidity:</p>
+                </div>
             </div>
-          </div>
-          </div>
-      </div>
+            </div>
+        </div>
+      </div> <!--row div-->
+    </div>
     <!--JS sources-->
     <script src="assets/script.js"></script>
     <script

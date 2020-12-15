@@ -1,3 +1,4 @@
+/* variables, body styling, title bar*/
 :root {
   --the-blue: #047bfe;
 }
@@ -8,26 +9,12 @@ body {
 
 #title-bar {
   text-align: center;
-  margin: 2%;
-  margin-bottom: 0;
   padding: 2%;
   color: white;
   background-color: rgb(51, 51, 51);
 }
 
 /* nav bar stylings */
-nav {
-  flex: auto;
-  background: #f7f9fa;
-  max-width: 30%;
-  min-width: fit-content;
-  margin-left: 2%;
-}
-
-#city-input {
-  margin: 1%;
-  margin-left: 2%;
-}
 
 #search-button {
   background-color: var(--the-blue);
@@ -41,9 +28,17 @@ nav {
   color: gray;
 }
 
+/* current city styling */
+#current-city {
+  border: 2px solid grey;
+  border-radius: 3px;
+}
+
 /* five day card styling */
 .five-day-cards {
   flex: auto;
   background-color: var(--the-blue);
   color: white;
+  border: 1px solid black;
+  border-radius: 3px;
 }
