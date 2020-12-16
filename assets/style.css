@@ -30,6 +30,7 @@ body {
 
 /* current city styling */
 #current-city {
+  margin: 2% 0;
   border: 2px solid grey;
   border-radius: 3px;
 }
