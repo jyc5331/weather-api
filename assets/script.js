@@ -125,9 +125,11 @@ function displayWeather(cityName) {
             <h6>` +
         generateDates(i) +
         `</h6>
-            <img src=` +
+            <img src="` +
         fiveDayData[i].weather[0].icon +
-        `".png" alt="hello">` +
+        `.png" alt="` +
+        fiveDayData[i].weather[0].description +
+        `">` +
         ` <p>Temp: ` +
         fiveDayData[i].main.temp +
         `</p>
