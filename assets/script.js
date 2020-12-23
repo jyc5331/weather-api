@@ -7,6 +7,7 @@ var currentCityImage = document.querySelector("#current-city-image");
 var cityCardList = document.querySelector("#city-card");
 var citySearchInput = document.querySelector("#city-input");
 var citySearchButton = document.querySelector("#search-button");
+var cityButton = document.querySelector(".list-group-item");
 var apiKey = "429949f7230d365361b50b640f79e338";
 
 //today's date
@@ -31,6 +32,7 @@ function citySearch(event) {
   cityCardEl.classList.add("list-group-item");
   cityCardEl.textContent = cityName;
   cityCardList.appendChild(cityCardEl);
+  displayWeather(cityName);
 }
 
 function logResponseCurrent(currentWeather) {
@@ -113,6 +115,7 @@ function displayWeather(cityName) {
   requestFive(cityName).then(function (fiveData) {
     console.log(fiveData);
     var fiveDayEl = document.querySelector("#fiveDayDiv");
+    fiveDayEl.innerHTML = "";
     console.log(fiveDayEl);
     fiveDayData = fiveData.list.slice(0, 5);
     for (var i = 0; i < fiveDayData.length; i++) {
