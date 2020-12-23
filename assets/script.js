@@ -29,7 +29,6 @@ function citySearch(event) {
   cityCardEl.textContent = cityName;
   cityCardList.appendChild(cityCardEl);
 }
-citySearchButton.addEventListener("click", citySearch);
 
 function logResponseCurrent(currentWeather) {
   console.log(currentWeather);
@@ -69,7 +68,7 @@ function requestFive(cityName) {
   var requestUrlFive =
     "http://api.openweathermap.org/data/2.5/forecast?q=" +
     cityName +
-    "&appid=" +
+    "&units=imperial&appid=" +
     apiKey;
   return fetch(requestUrlFive).then(function (responseFive) {
     return responseFive.json();
@@ -97,8 +96,32 @@ function displayWeather(cityName) {
       }
     );
   });
+
   requestFive(cityName).then(function (fiveData) {
     console.log(fiveData);
+    var fiveDayEl = document.querySelector("#fiveDayDiv");
+    console.log(fiveDayEl);
+    fiveDayData = fiveData.list.slice(0, 5);
+    for (var i = 0; i < fiveDayData.length; i++) {
+      var fiveDayDiv = document.createElement("div");
+      fiveDayDiv.classList.add("col-2");
+      fiveDayDiv.innerHTML =
+        `           
+        <div class="card">
+            <div class="card-body five-day-cards">
+            <h6>` +
+        fiveDayData[i].dt_txt.slice(0, 11) +
+        `</h6>
+            <p>place img here</p>
+            <p>Temp: ` +
+        fiveDayData[i].main.temp +
+        `</p>
+            <p>Humidity:</p>
+            </div>
+        </div>
+        `;
+      fiveDayEl.appendChild(fiveDayDiv);
+    }
   });
 }
 
@@ -107,3 +130,4 @@ function displayWeather(cityName) {
 //event listeners and calls
 var cityNew = "London";
 displayWeather(cityNew);
+citySearchButton.addEventListener("click", citySearch);
