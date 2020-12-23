@@ -10,13 +10,16 @@ var citySearchButton = document.querySelector("#search-button");
 var apiKey = "429949f7230d365361b50b640f79e338";
 
 //today's date
-var today = new Date();
-var dd = String(today.getDate()).padStart(2, "0");
-var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-var yyyy = today.getFullYear();
-today = mm + "/" + dd + "/" + yyyy;
-dateZone.textContent = today;
-
+var generateDates = function (days) {
+  var getDate = new Date();
+  var numberOfDaysToAdd = days;
+  getDate.setDate(getDate.getDate() + numberOfDaysToAdd);
+  var dd = getDate.getDate();
+  var mm = getDate.getMonth() + 1;
+  var y = getDate.getFullYear();
+  return mm + "/" + dd + "/" + y;
+};
+dateZone.textContent = generateDates(0);
 //functions
 
 //city search card creation
@@ -46,9 +49,14 @@ function requestCurrentWeather(cityName) {
     cityName +
     "&units=imperial&appid=" +
     apiKey;
-  return fetch(requestUrlCurrent).then(function (responseCurrent) {
-    return responseCurrent.json();
-  });
+  return fetch(requestUrlCurrent)
+    .then(function (responseCurrent) {
+      return responseCurrent.json();
+    })
+    .catch(function () {
+      var searchError = "City not found";
+      console.log(searchError);
+    });
 }
 function requestUV(lat, lon) {
   //uv index API
@@ -70,9 +78,14 @@ function requestFive(cityName) {
     cityName +
     "&units=imperial&appid=" +
     apiKey;
-  return fetch(requestUrlFive).then(function (responseFive) {
-    return responseFive.json();
-  });
+  return fetch(requestUrlFive)
+    .then(function (responseFive) {
+      return responseFive.json();
+    })
+    .catch(function () {
+      var searchError = "City not found";
+      console.log(searchError);
+    });
 }
 
 function displayWeather(cityName) {
@@ -104,19 +117,23 @@ function displayWeather(cityName) {
     fiveDayData = fiveData.list.slice(0, 5);
     for (var i = 0; i < fiveDayData.length; i++) {
       var fiveDayDiv = document.createElement("div");
-      fiveDayDiv.classList.add("col-2");
+      fiveDayDiv.classList.add("five-day-card");
       fiveDayDiv.innerHTML =
         `           
         <div class="card">
             <div class="card-body five-day-cards">
             <h6>` +
-        fiveDayData[i].dt_txt.slice(0, 11) +
+        generateDates(i) +
         `</h6>
-            <p>place img here</p>
-            <p>Temp: ` +
+            <img src=` +
+        fiveDayData[i].weather[0].icon +
+        `".png" alt="hello">` +
+        ` <p>Temp: ` +
         fiveDayData[i].main.temp +
         `</p>
-            <p>Humidity:</p>
+            <p>Humidity:` +
+        fiveDayData[i].main.humidity +
+        `</p>
             </div>
         </div>
         `;

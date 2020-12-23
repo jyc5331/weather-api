@@ -43,3 +43,8 @@ body {
   border: 1px solid black;
   border-radius: 3px;
 }
+
+.five-day-card {
+  width: 20%;
+  min-width: 20%;
+}
