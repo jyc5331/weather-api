@@ -32,7 +32,11 @@ function citySearch(event) {
   cityCardEl.classList.add("list-group-item");
   cityCardEl.textContent = cityName;
   cityCardList.appendChild(cityCardEl);
+  cityCardEl.addEventListener("click", function (event) {
+    displayWeather(cityName);
+  });
   displayWeather(cityName);
+  //incorporate local storage here
 }
 
 function logResponseCurrent(currentWeather) {
@@ -93,6 +97,7 @@ function requestFive(cityName) {
 function displayWeather(cityName) {
   requestCurrentWeather(cityName).then(function (currentWeatherData) {
     console.log(currentWeatherData);
+    document.querySelector("#city-title").textContent = cityName;
     document.querySelector("#currentTemperature").textContent =
       currentWeatherData.main.temp;
     document.querySelector("#currentHumidity").textContent =
@@ -148,6 +153,8 @@ function displayWeather(cityName) {
 }
 
 //local storage
+// get data on page load (what data are you storing and how...array)
+// save history on create element
 
 //event listeners and calls
 var cityNew = "London";
