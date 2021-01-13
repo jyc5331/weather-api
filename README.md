@@ -6,5 +6,5 @@ The application can be accessed at: https://jyc5331.github.io/weather-api/
 
 The app was created with HTML, CSS, and JavaScript and features third party APIs from openweathermap.org
 
-![screenshot](/Users/josephcosgrove/Desktop/projects/weather-api/assets/screencapture.png)
+![screencapture](/Users/josephcosgrove/Desktop/projects/weather-api/assets/screencapture.png)
 
