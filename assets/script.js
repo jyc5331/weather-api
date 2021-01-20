@@ -9,6 +9,7 @@ var citySearchInput = document.querySelector("#city-input");
 var citySearchButton = document.querySelector("#search-button");
 var cityButton = document.querySelector(".list-group-item");
 var apiKey = "429949f7230d365361b50b640f79e338";
+var cityArray = [];
 
 //today's date
 var generateDates = function (days) {
@@ -35,8 +36,10 @@ function citySearch(event) {
   cityCardEl.addEventListener("click", function (event) {
     displayWeather(cityName);
   });
+  cityArray.push(cityName);
   displayWeather(cityName);
-  //incorporate local storage here
+  saveLocalStorage(cityName);
+  loadLocalStorage();
 }
 
 function logResponseCurrent(currentWeather) {
@@ -104,7 +107,6 @@ function displayWeather(cityName) {
       currentWeatherData.main.humidity;
     document.querySelector("#currentWindSpeed").textContent =
       currentWeatherData.wind.speed;
-    //lat and lon
     var lat = currentWeatherData.coord.lat;
     var lon = currentWeatherData.coord.lon;
     console.log(lat, lon);
@@ -153,10 +155,26 @@ function displayWeather(cityName) {
 }
 
 //local storage
-// get data on page load (what data are you storing and how...array)
-// save history on create element
+function saveLocalStorage() {
+  localStorage.setItem("cityList", JSON.stringify(cityArray));
+}
+function loadLocalStorage() {
+  cityArray = JSON.parse(localStorage.getItem("cityList")) || [];
+
+  for (var i = 0; i < cityArray.length; i++) {
+    var cityCardEl = document.createElement("li");
+    cityCardEl.classList.add("list-group-item");
+    var cityName = cityArray[i];
+    cityCardEl.textContent = cityName;
+    cityCardList.appendChild(cityCardEl);
+    cityCardEl.addEventListener("click", function (event) {
+      displayWeather(cityName);
+    });
+  }
+}
 
 //event listeners and calls
+loadLocalStorage();
 var cityNew = "London";
 displayWeather(cityNew);
 citySearchButton.addEventListener("click", citySearch);
