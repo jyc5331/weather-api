@@ -67,7 +67,7 @@ function requestCurrentWeather(cityName) {
 function requestUV(lat, lon) {
   //uv index API
   var requestUrlUv =
-    "http://api.openweathermap.org/data/2.5/uvi?lat=" +
+    "https://api.openweathermap.org/data/2.5/uvi?lat=" +
     lat +
     "&lon=" +
     lon +
@@ -80,7 +80,7 @@ function requestUV(lat, lon) {
 function requestFive(cityName) {
   //five day forecast API
   var requestUrlFive =
-    "http://api.openweathermap.org/data/2.5/forecast?q=" +
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
     cityName +
     "&units=imperial&appid=" +
     apiKey;
