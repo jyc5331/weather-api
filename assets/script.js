@@ -159,6 +159,8 @@ function saveLocalStorage() {
   localStorage.setItem("cityList", JSON.stringify(cityArray));
 }
 function loadLocalStorage() {
+  cityCardList.innerHTML = "";
+
   cityArray = JSON.parse(localStorage.getItem("cityList")) || [];
 
   for (var i = 0; i < cityArray.length; i++) {
