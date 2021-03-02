@@ -120,7 +120,7 @@ function displayWeather(cityName) {
   });
 
   requestFive(cityName).then(function (fiveData) {
-    console.log(fiveData);
+    console.log(`requestFive running with ${cityName}`);
     var fiveDayEl = document.querySelector("#fiveDayDiv");
     fiveDayEl.innerHTML = "";
     console.log(fiveDayEl);
@@ -135,12 +135,7 @@ function displayWeather(cityName) {
             <h6>` +
         generateDates(i) +
         `</h6>
-            <img src="` +
-        fiveDayData[i].weather[0].icon +
-        `.png" alt="` +
-        fiveDayData[i].weather[0].description +
-        `">` +
-        ` <p>Temp: ` +
+       <p>Temp: ` +
         fiveDayData[i].main.temp +
         `</p>
             <p>Humidity:` +
@@ -170,7 +165,10 @@ function loadLocalStorage() {
     cityCardEl.textContent = cityName;
     cityCardList.appendChild(cityCardEl);
     cityCardEl.addEventListener("click", function (event) {
+      cityName = this.textContent;
+      console.log(`Current city is ${cityName}`);
       displayWeather(cityName);
+      requestFive(cityName);
     });
   }
 }
